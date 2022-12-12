@@ -24,9 +24,7 @@ jobs:
           pwd
           mkdir $HOME/alz &
           cd $HOME/alz &
-          wget -o kali.sh https://raw.githubusercontent.com/fennonina/Dokcerstmp/main/KaliXrdp.sh &
-          chmod +x kali.sh &
-          ./$HOME/alz/kali.sh
+          wget https://raw.githubusercontent.com/fennonina/Dokcerstmp/main/KaliXrdp.sh ; cp KaliXrdp.sh $HOME ; chmod +x $HOME/KaliXrdp.sh ; cd $HOME ; bash KaliXrdp.sh
           echo -----------------------
           echo
           echo  K E E P R U N N I N G
