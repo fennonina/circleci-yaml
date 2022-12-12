@@ -1,20 +1,28 @@
 version: 2.1
-
-orbs:
-  win: circleci/windows@5.0.0 # The Windows orb gives you everything you need to start using the Windows executor.
-
+executors:
+  size: "large"
+  my-custom-executor:
+    docker:
+      - image: cimg/base:stable
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/fennonina/circleci-yaml/environment-variables
+          username: $DOCKER_HUB_USER
+          password: $DOCKER_HUB_PASSWORD
 jobs:
-  lscpo:
-    executor:
-      name: win/default # executor type
-      size: "large" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
+  testrunner:
 
+    executor: my-custom-executor
     steps:
-      # Commands are run in a Windows virtual machine environment
       - checkout
-      - run: wmic cpu get NumberOfCores,NumberOfLogicalProcessors 
+      - run: |
+          lscpu
+          echo ------------
+          free -g
+          echo ------------
+          
 
 workflows:
-  my-workflow:
+  my-custom-workflow:
     jobs:
-      - lscpo
+      - testrunner
