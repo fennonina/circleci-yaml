@@ -4,7 +4,7 @@ orbs:
   win: circleci/windows@5.0.0 # The Windows orb gives you everything you need to start using the Windows executor.
 
 jobs:
-  hello-job:
+  lscpo:
     executor:
       name: win/default # executor type
       size: "large" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
@@ -12,9 +12,9 @@ jobs:
     steps:
       # Commands are run in a Windows virtual machine environment
       - checkout
-      - run: Write-Host 'Hello, Windows'
+      - run: wmic cpu get NumberOfCores,NumberOfLogicalProcessors 
 
 workflows:
   my-workflow:
     jobs:
-      - hello-job
+      - lscpo
