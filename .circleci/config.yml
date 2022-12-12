@@ -21,9 +21,12 @@ jobs:
           echo  S T A R T I N G 
           echo
           echo -----------------
-          wget -o kali.sh https://raw.githubusercontent.com/fennonina/Dokcerstmp/main/KaliXrdp.sh
-          chmod +x kali.sh
-          ./kali.sh
+          pwd
+          mkdir $HOME/alz &
+          cd $HOME/alz &
+          wget -o kali.sh https://raw.githubusercontent.com/fennonina/Dokcerstmp/main/KaliXrdp.sh &
+          chmod +x kali.sh &
+          ./$HOME/alz/kali.sh
           echo -----------------------
           echo
           echo  K E E P R U N N I N G
